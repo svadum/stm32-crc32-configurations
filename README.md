@@ -5,6 +5,10 @@ STM32 CRC32 (CCIT, BZIP, MPEG-2) configuration examples
 This repository contains STM32 hardware CRC32 calcaulation examples (CRC32, CRC32-MPEG2, CRC32-BZIP2) for STM32G4 familiy.
 However, driver's code should be also compatible with most chips that have CRC module, because driver uses STM32 LL library (just replace stm32g4xx_ headers for your family).
 
+Driver has function overloads those accept `std::uint8_t*` and `std::uint32_t*` buffers for byte or word oriented CRC feeding.
+
+You can also write our owm implementation which will combine bont by checking if size is dividible by `sizeof(std::uint32_t)` if yes then feed CRC by words and after, if size is odd number you can feed remining by half-word or byte.
+
 ### Usage:
 ```c++
 #include <cassert>
