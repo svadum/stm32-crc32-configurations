@@ -9,6 +9,8 @@ Driver has function overloads those accept `std::uint8_t*` and `std::uint32_t*` 
 
 You can also write our owm implementation which will combine bont by checking if size is dividible by `sizeof(std::uint32_t)` if yes then feed CRC by words and after, if size is odd number you can feed remining by half-word or byte.
 
+Another possible improve is to feed CRC with DMA.
+
 ### Usage:
 ```c++
 #include <cassert>
